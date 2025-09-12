@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Play, Lightbulb, BookOpen, Copy, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -12,31 +11,31 @@ interface CodeEditorProps {
 
 const CodeEditor = ({ onRunCode, onLineExplain, onFullExplain }: CodeEditorProps) => {
   const { toast } = useToast();
-  const [selectedLanguage, setSelectedLanguage] = useState("python");
-  const [code, setCode] = useState(`# Welcome to CodeLearn! 
-# Let's start with a simple Python example
+  const [code, setCode] = useState(`// Welcome to CodeLearn! 
+// Let's start with a simple C++ example
 
-def fibonacci(n):
-    """Calculate the nth Fibonacci number"""
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+#include <iostream>
+using namespace std;
 
-# Test the function
-for i in range(10):
-    print(f"F({i}) = {fibonacci(i)}")
+int fibonacci(int n) {
+    // Calculate the nth Fibonacci number
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
 
-# Try running this code or get explanations!`);
+int main() {
+    // Test the function
+    for (int i = 0; i < 10; i++) {
+        cout << "F(" << i << ") = " << fibonacci(i) << endl;
+    }
+    return 0;
+}
 
-  const languages = [
-    { value: "python", label: "Python", icon: "🐍" },
-    { value: "javascript", label: "JavaScript", icon: "🟨" },
-    { value: "java", label: "Java", icon: "☕" },
-    { value: "cpp", label: "C++", icon: "⚡" },
-    { value: "csharp", label: "C#", icon: "🔷" },
-    { value: "rust", label: "Rust", icon: "🦀" },
-  ];
+// Try running this code or get explanations!`);
+
 
   const copyCode = () => {
     navigator.clipboard.writeText(code);
@@ -50,7 +49,7 @@ for i in range(10):
     const element = document.createElement("a");
     const file = new Blob([code], { type: "text/plain" });
     element.href = URL.createObjectURL(file);
-    element.download = `code.${selectedLanguage === "cpp" ? "cpp" : selectedLanguage === "csharp" ? "cs" : selectedLanguage}`;
+    element.download = "code.cpp";
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -61,22 +60,11 @@ for i in range(10):
       {/* Editor Header */}
       <div className="flex items-center justify-between p-4 border-b bg-muted/30 rounded-t-2xl">
         <div className="flex items-center gap-4">
-          {/* Language Selector */}
-          <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>
-            <SelectTrigger className="w-48 font-ui">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {languages.map((lang) => (
-                <SelectItem key={lang.value} value={lang.value}>
-                  <div className="flex items-center gap-2">
-                    <span>{lang.icon}</span>
-                    <span>{lang.label}</span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {/* Language Label */}
+          <div className="flex items-center gap-2 px-3 py-2 bg-primary/10 rounded-md">
+            <span>⚡</span>
+            <span className="font-ui font-medium">C++</span>
+          </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
