@@ -1,27 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeLearn - Interactive Code Learning Platform</title>
-    <meta name="description" content="Learn programming interactively with AI-powered explanations and step-by-step guidance" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Interactive C++ Learning Platform</title>
+    <meta name="description" content="Learn C++ programming with AI-powered explanations, interactive code editor, and beginner-friendly tutorials.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <meta name="author" content="Lovable" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="light-mode">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <div class="logo-icon">⚡</div>
+                <span class="logo-text">CodeLearn</span>
+            </div>
 
-    <meta property="og:title" content="0c7876b3-ae84-440b-96b5-0041dc85a0bb" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+            <!-- Navigation Menu -->
+            <div class="navbar-menu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Learn</a>
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Pricing</a>
+                <a href="#" class="nav-link">About</a>
+            </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+            <!-- Right Side -->
+            <div class="navbar-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i data-lucide="sun" class="theme-icon light-icon"></i>
+                    <i data-lucide="moon" class="theme-icon dark-icon"></i>
+                </button>
+                <button class="btn btn-outline">Login</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Main Workspace -->
+    <main class="workspace">
+        <!-- Left Panel - Code Editor -->
+        <section class="code-editor-panel">
+            <div class="code-editor">
+                <!-- Editor Header -->
+                <div class="editor-header">
+                    <div class="editor-header-left">
+                        <!-- Language Label -->
+                        <div class="language-label">
+                            <span class="language-icon">⚡</span>
+                            <span class="language-name">C++</span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="editor-actions">
+                            <button class="btn btn-primary btn-sm" id="runCode">
+                                <i data-lucide="play"></i>
+                                Run
+                            </button>
+                            <button class="btn btn-secondary btn-sm" id="lineExplain">
+                                <i data-lucide="lightbulb"></i>
+                                Line-by-Line
+                            </button>
+                            <button class="btn btn-accent btn-sm" id="fullExplain">
+                                <i data-lucide="book-open"></i>
+                                Full Explain
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Utility Buttons -->
+                    <div class="editor-header-right">
+                        <button class="btn btn-ghost btn-sm" id="copyCode" aria-label="Copy code">
+                            <i data-lucide="copy"></i>
+                        </button>
+                        <button class="btn btn-ghost btn-sm" id="downloadCode" aria-label="Download code">
+                            <i data-lucide="download"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Code Editor Area -->
+                <div class="editor-content">
+                    <div class="line-numbers" id="lineNumbers"></div>
+                    <textarea 
+                        id="codeTextarea" 
+                        class="code-textarea" 
+                        spellcheck="false"
+                        placeholder="Start coding...">// Welcome to CodeLearn! 
+// Let's start with a simple C++ example
+
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n) {
+    // Calculate the nth Fibonacci number
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
+
+int main() {
+    // Test the function
+    for (int i = 0; i < 10; i++) {
+        cout << "F(" << i << ") = " << fibonacci(i) << endl;
+    }
+    return 0;
+}
+
+// Try running this code or get explanations!</textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel - Explanation Panel -->
+        <section class="explanation-panel">
+            <div class="explanation-container">
+                <!-- Panel Header -->
+                <div class="explanation-header">
+                    <div class="explanation-header-left">
+                        <h2 class="explanation-title" id="explanationTitle">AI Explanations</h2>
+                        <span class="explanation-badge" id="explanationBadge" style="display: none;"></span>
+                    </div>
+                    
+                    <button class="btn btn-sm" id="toggleBeginnerMode">
+                        <i data-lucide="graduation-cap" class="beginner-icon"></i>
+                        <i data-lucide="brain" class="advanced-icon" style="display: none;"></i>
+                        <span class="mode-text">Beginner Mode</span>
+                    </button>
+                </div>
+
+                <!-- Content -->
+                <div class="explanation-content" id="explanationContent">
+                    <!-- Idle State -->
+                    <div class="explanation-idle" id="explanationIdle">
+                        <div class="idle-icon">
+                            <i data-lucide="code"></i>
+                        </div>
+                        <div class="idle-content">
+                            <h3>Ready to Learn!</h3>
+                            <p>Click "Line-by-Line" or "Full Explain" to get AI-powered explanations of your code.</p>
+                        </div>
+                    </div>
+
+                    <!-- Line Explanations -->
+                    <div class="line-explanations" id="lineExplanations" style="display: none;"></div>
+
+                    <!-- Full Explanations -->
+                    <div class="full-explanations" id="fullExplanations" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Chatbox -->
+    <div class="ai-chatbox" id="aiChatbox">
+        <div class="chatbox-header" id="chatboxHeader">
+            <div class="chatbox-header-left">
+                <div class="ai-avatar">
+                    <i data-lucide="bot"></i>
+                </div>
+                <div class="chatbox-info">
+                    <span class="chatbox-title">AI Assistant</span>
+                    <span class="chatbox-status">Ready to help</span>
+                </div>
+            </div>
+            <button class="chatbox-toggle" id="chatboxToggle">
+                <i data-lucide="chevron-up" class="expand-icon"></i>
+                <i data-lucide="chevron-down" class="collapse-icon" style="display: none;"></i>
+            </button>
+        </div>
+
+        <div class="chatbox-content" id="chatboxContent">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message ai-message">
+                    <div class="message-avatar">
+                        <i data-lucide="bot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hi! I'm your AI coding assistant. I can help explain your C++ code, find bugs, suggest improvements, and answer programming questions. What would you like to know?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="quick-action-btn" data-action="step-by-step">
+                    <i data-lucide="list"></i>
+                    Explain step by step
+                </button>
+                <button class="quick-action-btn" data-action="optimize">
+                    <i data-lucide="zap"></i>
+                    Optimize my code
+                </button>
+                <button class="quick-action-btn" data-action="find-errors">
+                    <i data-lucide="alert-circle"></i>
+                    Find errors
+                </button>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="chat-input" 
+                        id="chatInput" 
+                        placeholder="Ask anything about your code..."
+                        maxlength="500"
+                    >
+                    <button class="send-button" id="sendButton">
+                        <i data-lucide="send"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
+</body>
 </html>
