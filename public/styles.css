@@ -284,6 +284,42 @@ body {
     color: var(--foreground);
 }
 
+/* Sections */
+section {
+    min-height: 100vh;
+    padding: 4rem 0;
+}
+
+.section-home {
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+}
+
 /* Workspace */
 .workspace {
     display: flex;
@@ -862,6 +898,326 @@ body {
         right: 1rem;
         left: 1rem;
     }
+}
+
+/* Learn Section */
+.section-learn {
+    background: var(--gradient-playful);
+}
+
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.tutorial-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+.tutorial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.tutorial-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+}
+
+.tutorial-card p {
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+}
+
+.learning-flow {
+    background-color: var(--card);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.learning-flow h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 3rem;
+}
+
+.flow-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.flow-step {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 2rem;
+    height: 2rem;
+    background: var(--gradient-primary);
+    color: var(--primary-foreground);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.flow-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.flow-step p {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.flow-arrow {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Features Section */
+.section-features {
+    background-color: var(--background);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--muted-foreground);
+    line-height: 1.6;
+}
+
+/* Pricing Section */
+.section-pricing {
+    background: var(--gradient-playful);
+}
+
+.pricing-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--card);
+    border: 2px solid var(--primary);
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.sensei-mascot {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-card h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.pricing-description {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.pricing-features {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.pricing-feature {
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+}
+
+.pricing-feature:last-child {
+    border-bottom: none;
+}
+
+.btn-large {
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.pricing-note {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+/* About Section */
+.section-about {
+    background-color: var(--background);
+}
+
+.mission-statement,
+.why-section {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.mission-statement h2,
+.why-section h2,
+.tech-stack h2,
+.contact-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.mission-statement p,
+.why-section p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--muted-foreground);
+}
+
+.tech-stack {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--primary-foreground);
+    font-size: 1.25rem;
+    transition: var(--transition);
+}
+
+.tech-item:hover .tech-icon {
+    transform: scale(1.1);
+}
+
+.tech-item span {
+    font-size: 0.875rem;
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-section p {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Utility Classes */
