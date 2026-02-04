@@ -143,13 +143,16 @@ const Home = () => {
 
               <div className="flex-1 overflow-y-auto p-4">
                 {explanationMode === 'idle' && (
-                  <div className="flex flex-col items-center justify-center h-full text-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Code className="w-8 h-8 text-primary" />
+                  <div className="flex flex-col items-center justify-center h-full text-center gap-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
+                      🥋
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-2">Ready to Learn!</h3>
-                      <p className="text-muted-foreground text-sm">
+                      <h3 className="font-bold text-xl mb-2">Cpp Sensei</h3>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        Your AI coding tutor
+                      </p>
+                      <p className="text-muted-foreground text-sm max-w-xs">
                         Click "Line-by-Line" or "Full Explain" to get AI-powered explanations of your code.
                       </p>
                     </div>
