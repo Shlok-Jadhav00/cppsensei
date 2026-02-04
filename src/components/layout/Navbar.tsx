@@ -41,13 +41,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </Button>
-          <Button variant="outline">Login</Button>
-          <Button>Sign Up</Button>
-        </div>
+        <Button variant="ghost" size="icon" onClick={toggleTheme}>
+          {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </Button>
       </div>
     </nav>
   );

@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import Navbar from "./Navbar";
-import AIChatbox from "./AIChatbox";
 import { useAppContext } from "@/contexts/AppContext";
 
 interface LayoutProps {
@@ -14,7 +13,6 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
       <Navbar />
       {children}
-      <AIChatbox />
     </div>
   );
 };
